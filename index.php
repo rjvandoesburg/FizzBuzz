@@ -7,11 +7,20 @@ echo "Simple FizzBuzz example\n\n";
 // For numbers which are multiples of both three and five print “FizzBuzz”."
 
 for ($i = 1; $i <= 100; $i++) {
-    if ($i % 3 === 0) {
-        echo "Fizz\n";
-    } else if ($i % 5 === 0) {
-        echo "Buzz\n";
-    } else {
-        echo "{$i}\n";
+    $multiplyThree = $i % 3 === 0;
+    $multiplyFive  = $i % 5 === 0;
+
+    switch ($i) {
+        case $multiplyThree && $multiplyFive:
+            echo "FizzBuzz\n";
+            break;
+        case $multiplyThree:
+            echo "Fizz\n";
+            break;
+        case $multiplyFive:
+            echo "Buzz\n";
+            break;
+        default:
+            echo "{$i}\n";
     }
 }
